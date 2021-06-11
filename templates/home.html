@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Home - {{data.username}}</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+
+
+        <!-- CDN Bootstrap -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+
+        <header class="p-3 border">
+            <h1>!Hola de nuevo {{data.username}}!</h1>
+        </header>
+
+        <main class="container-fluid my-3 p-5">
+            <div class="conatiner my-2 p-4 border">
+
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active"  data-toggle="tab" href="#misTask">Mis Tareas</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link"  data-toggle="tab" href="#appendTask">Crear tarea</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane container active mt-3 p-3" id="misTask">
+                        {% if data.tasks %}
+                            <div class="list-group" id="contenedor-tareas">
+                                {% for task_ in data.tasks %}
+                                    {% if task_.important == 1 %}
+                                        <li class="list-group-item">
+                                            <h2>{{task_.title}}</h2>
+                                            <p>{{task_.description}}</p>
+                                            <small>Vence: {{task_.end_date}}</small>
+                                            <br/>
+                                            <small>Se creo: {{task_.start_date}}</small>
+                                            <br/>
+                                            <br/>
+                                            <strong>IMPORTANTE</strong>
+
+                                            <br/>
+                                            <br/>
+                                            <a href="/borrar/{{task_.id}}/accountask/{{data.username}}" class="btn btn-primary">Hecha</a>
+                                        </li>
+                                    {% else %}
+                                         <li class="list-group-item">
+                                            <h2>{{task_.title}}</h2>
+                                            <p>{{task_.description}}</p>
+                                            <small>Vence: {{task_.end_date}}</small>
+                                            <br/>
+                                            <small>Se creo: {{task_.start_date}}</small>
+
+                                             <br/>
+                                             <br/>
+                                             <a href="/borrar/{{task_.id}}/accountask/{{data.username}}" class="btn btn-primary">Hecha</a>
+                                         </li>
+                                    {% endif %}
+
+                                {% endfor %}
+                            </div>
+
+                            {% else %}
+                                <p>No hay tareas</p>
+                        {% endif %}
+                    </div>
+
+
+                    <div class="tab-pane container fade mt-3 p-3" id="appendTask">
+                        <h3>Crea tu nueva tarea!</h3>
+                        <form action="" method="post">
+                            <div class="form-group">
+                                <label for="title">Titulo</label>
+                                <input type="text" id="title" name="title" class="form-control" required minlength="4">
+                            </div>
+                            
+                            <div class="form-group mt-2">
+                                <label for="desc">Descripcion</label>
+                                <textarea name="description" id="desc" cols="30" rows="10" class="form-control" minlength="10" required></textarea>
+                            </div>
+
+                            <div class="form-group mt-2">
+                                <label for="fecha-limite">Fecha limite</label>
+                                <input type="date" id="fecha-limite" name="fecha-limite" class="form-control" required>
+                            </div>
+
+                            <div class="form-group mt-2">
+                                <label for="import">Esta tarea es importante</label>
+                                <input type="text" placeholder="Yes/No" name="important" id="import" class="form-control">
+                            </div>
+
+                            <input type="submit" value="Agregar tarea!" class="btn btn-primary mt-4">
+
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/home.js') }}"></script>
+
+    </body>
+
+</html>

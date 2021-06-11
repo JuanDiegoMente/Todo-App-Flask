@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Index - Task App</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+
+        <!-- CDN Bootstrap -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+
+
+        <div class="container-fluid my-3 p-4">
+            <div class="container border text-center p-4">
+
+                <a href="{{url_for('inicio_sesion')}}" class="btn btn-primary">Iniciar sesion</a>
+                <a href="{{url_for('create_account')}}"  class="btn btn-primary">Crear cuenta</a>
+
+            </div>
+        </div>
+
+        <div class="container my-4 p-3">
+            <h1>ToDo App con Flask</h1>
+
+            <div class="container p-4 my-2">
+                <h2>¿Por qué esta APP?</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque
+                    consequatur ea earum, error expedita fugit harum laborum magnam magni nisi
+                    perferendis quos ratione reiciendis repellendus reprehenderit sed sit vitae.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Aut corporis cum dignissimos dolore ducimus iure minus modi nemo
+                    neque nesciunt nihil non nulla numquam officiis optio praesentium,
+                    vel voluptatibus voluptatum.
+                </p>
+            </div>
+
+        </div>
+        
+
+        
+
+
+    </body>
+
+</html>
+
+
+
+
+
+
+
+
+

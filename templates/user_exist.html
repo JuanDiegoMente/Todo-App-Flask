@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Upps...</title>
+
+        <!-- CDN Bootstrap -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+
+        <div class="container my-4 p-3 border">
+            <h1>Upss... Lo sentimos, el username "{{datos.nameDefault}}" ya existe</h1>
+            <p>Te podamos dar algunas suguerencias!</p>
+
+            <div class="list-group my-3 p-2">
+                {% for i in datos.sug %}
+                    <li class="list-group-item">{{i}}</li>
+                {% endfor %}
+            </div>
+
+            {% if datos.correo %}
+                <p class="my-3">Además, el correo que nos diste ya esta en uso D:</p>
+            {% endif %}
+
+            <a href="{{url_for('create_account')}}" class="btn btn-primary">Voler!</a>
+
+        </div>
+
+    </body>
+
+</html>
+
+
+
+
+
+
+
