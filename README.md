@@ -11,4 +11,4 @@ y poniendolas en practica y eso es lo hermoso de la programación <3 Pero bueno 
 
 Que tengan un feliz dia :D <3 y gracias por tomarse el tiempo de ver esta practica.
 
-### Aún no hemos leido Clean Code asi que si el código se ve spaghetti lo sentimos, lo mejoraremos pronto :D
+ **Aún no hemos leido Clean Code asi que si el código se ve spaghetti lo sentimos, lo mejoraremos pronto :D**
